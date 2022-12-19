@@ -30,7 +30,7 @@ def csv_reader():
 data, name = csv_reader()
 profession = input('Введите название профессии: ')
 
-type_file = input('Введите данные для печати:')
+type_of_file = input('Введите данные для печати:')
 
 currency_to_rub = {
     "AZN": 35.68,
