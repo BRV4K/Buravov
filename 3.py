@@ -11,6 +11,10 @@ import pdfkit
 
 
 def csv_reader():
+    '''
+    Функция для считывания CSV-файла
+    :return: array: массив данных с вакансиями, array: заголовки даннных
+    '''
     with open(input('Введите название файла: '), encoding='utf-8-sig') as r_file:
         file = csv.reader(r_file, delimiter=",")
         count = 0
@@ -47,6 +51,12 @@ currency_to_rub = {
 
 
 def get_vacs(data, names):
+    '''
+    Функция обрабатывает данные вакансий и оставляет только нужную информацию
+    :param data: массив данных с вакансиями
+    :param names: заголовки
+    :return: array: массив массивов вакансий с нужной информацией
+    '''
     vacancies = []
     for vacancy in data:
         name = vacancy[names.index('name')]
@@ -61,6 +71,16 @@ def get_vacs(data, names):
 
 
 def get_dynamic(vacancies):
+    '''
+    Обрабатывает данные вакансий и создаёт массивы с различной информацией по вакансиям
+    :param vacancies: массив массивов ваканский
+    :return: dynamic_salary: Динамика уровня зарплат по годам
+            vacs_count: Динамика количества вакансий по годам
+            dynamic_salary_prof: Динамика уровня зарплат по годам для выбранной профессии
+            vac_count_prof: Динамика количества вакансий по годам для выбранной профессии
+            salary_level_city: Уровень зарплат по городам (в порядке убывания)
+            vacancies_city: Доля вакансий по городам (в порядке убывания)
+    '''
     salaries = {}
     vacs_count = {}
     vac_count_prof = {}
